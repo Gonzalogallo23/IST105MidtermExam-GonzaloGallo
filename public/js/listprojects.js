@@ -19,16 +19,19 @@ window.addEventListener('load', function () {
 
   firebase.auth().onAuthStateChanged((user) => {
     if (user) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/v8/firebase.User
+      var uid = user.uid;
     } else {
-      console.log('No hay usuario autenticado');
-      console.log(window.location.pathname);
+      console.log(window.location.pathname == '/listprojects.html');
+      console.log(window.location.pathname + '  /listprojects.html');
   
-      if (window.location.pathname === '/public/listprojects.html') {
+  
+      if (window.location.pathname == '/listprojects.html') {
         window.location.href = 'index.html'; 
       }
     }
   });
-
 
   //Implement SignOut Function
 document.getElementById("sign-out").addEventListener("click", function() {
