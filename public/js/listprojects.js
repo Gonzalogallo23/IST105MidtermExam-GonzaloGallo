@@ -24,7 +24,7 @@ window.addEventListener('load', function () {
       var uid = user.uid;
     } else {
       console.log(window.location.pathname == '/listprojects.html');
-      console.log(window.location.pathname + '  /listprojects.html');
+      console.log(window.location.pathname + '/listprojects.html');
   
   
       if (window.location.pathname == '/listprojects.html') {
