@@ -17,6 +17,19 @@ window.addEventListener('load', function () {
   //Listen for auth state changes
   //firebase.auth().onAuthStateChanged(onAuthStateChanged);
 
+  firebase.auth().onAuthStateChanged((user) => {
+    if (user) {
+    } else {
+      console.log('No hay usuario autenticado');
+      console.log(window.location.pathname);
+  
+      if (window.location.pathname === '/public/listprojects.html') {
+        window.location.href = 'index.html'; 
+      }
+    }
+  });
+
+
   //Implement SignOut Function
 document.getElementById("sign-out").addEventListener("click", function() {
   firebase.auth().signOut().then(() => {
