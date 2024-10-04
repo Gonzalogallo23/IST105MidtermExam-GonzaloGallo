@@ -10,8 +10,6 @@
 Function onAuthStateChanged(user)
 Write a function to check if a user is logged
 */
-
-
 window.addEventListener('load', function () {
 
     //Listen for auth state changes
