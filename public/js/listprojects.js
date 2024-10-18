@@ -23,25 +23,32 @@ window.addEventListener('load', function () {
       // https://firebase.google.com/docs/reference/js/v8/firebase.User
       var uid = user.uid;
     } else {
-      console.log(window.location.pathname == '/listprojects.html');
-      console.log(window.location.pathname + '/listprojects.html');
+      console.log(window.location.pathname == '/culturalconnections.html');
+      console.log(window.location.pathname + '/culturalconnections.html');
   
   
-      if (window.location.pathname == '/listprojects.html') {
+      if (window.location.pathname == '/culturalconnections.html') {
         window.location.href = 'index.html'; 
       }
     }
   });
 
-  //Implement SignOut Function
-document.getElementById("sign-out").addEventListener("click", function() {
-  firebase.auth().signOut().then(() => {
-    location.href = "index.html";
-  }).catch((error) => {
-    console.log("Logging fail", error);
-  });
+// Assuming you already have this at the top of your auth.js
+import { getAuth, signOut } from "firebase/auth"; // Import the signOut method
 
-});
+const auth = getAuth();
 
+window.addEventListener('load', function () {
+    // Existing sign-in logic...
 
+    // Add the logout functionality
+    document.getElementById('logout').addEventListener('click', function () {
+        signOut(auth).then(() => {
+            console.log('User signed out.');
+            // Redirect to index.html after successful logout
+            location.href = 'index.html';
+        }).catch((error) => {
+            console.error('Error signing out: ', error);
+        });
+    });
 });
